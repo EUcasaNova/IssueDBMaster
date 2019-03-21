@@ -98,7 +98,7 @@
                                   <Component id="assignedToField" alignment="0" pref="301" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                                   <Component id="jSlider1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="StatusBox" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="masterScrollPane" pref="367" max="32767" attributes="0"/>
@@ -119,15 +119,15 @@
                   <Component id="commentLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="priorityLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jSlider1" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="statusLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusBox" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="statusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -330,7 +330,6 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Null"/>
           </Properties>
           <BindingProperties>
             <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.comment}" target="CommentField" targetPath="text" updateStrategy="0" immediately="false">
@@ -351,7 +350,7 @@
         <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="jSlider1" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="StatusBox">
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -361,12 +360,14 @@
             <StringItem index="3" value="Closed"/>
           </StringArray>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <BindingProperties>
-        <BindingProperty name="elements" source="masterTable" sourcePath="${selectedElement.status}" target="StatusBox" targetPath="elements" updateStrategy="0" immediately="false"/>
-        <BindingProperty name="selectedItem" source="masterTable" sourcePath="${selectedElement.status}" target="StatusBox" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
-        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement.status}" target="StatusBox" targetPath="enabled" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="elements" source="masterTable" sourcePath="${selectedElement.status}" target="jComboBox1" targetPath="elements" updateStrategy="0" immediately="false"/>
       </BindingProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
